@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 /**
  * Represents a single light block
  */
-public class LightBlock implements LightController {
+public class LightBlock implements LightController, Cloneable {
     static {
         ValidLightBlocks = Arrays.stream(Material.values()).filter(m->(m.isBlock() && m.createBlockData() instanceof Lightable) || m.equals(Material.LIGHT)).toList();
     }
@@ -174,5 +174,14 @@ public class LightBlock implements LightController {
         }
         LightController other = (LightController) obj;
         return this.getId() == other.getId();
+    }
+
+    @Override
+    public LightBlock clone() {
+        try {
+            return (LightBlock) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new Error(e);
+        }
     }
 }

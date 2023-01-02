@@ -14,7 +14,7 @@ import java.util.UUID;
 /**
  * Represents a collection of light blocks
  */
-public class LightZone implements LightController {
+public class LightZone implements LightController, Cloneable {
     private final UUID id;
     private Location min = null;
     private Location max = null;
@@ -197,5 +197,14 @@ public class LightZone implements LightController {
         }
         LightController other = (LightController) obj;
         return this.getId() == other.getId();
+    }
+
+    @Override
+    public LightZone clone() {
+        try {
+            return (LightZone) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new Error(e);
+        }
     }
 }

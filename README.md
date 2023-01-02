@@ -18,7 +18,7 @@ See https://github.com/TheServer-wtf/TSLight for the plugin implementation
 <dependency>
     <groupId>wtf.TheServer</groupId>
     <artifactId>TSLight-API</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <scope>provided</scope>
 </dependency>
 ```
